@@ -2,7 +2,7 @@ language: java
 
 before_install:
   - chmod +x gradlew
-  - ./gradlew wrapper --gradle-version=4.6 --distribution-type=bin
+  - gradle wrapper --gradle-version=4.6 --distribution-type=bin
 
 jdk:
   - oraclejdk8
