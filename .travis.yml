@@ -1,5 +1,8 @@
 language: java
 
+before_install:
+  - chmod +x gradlew
+
 script: ./gradlew :provider:check --info --stacktrace --console=plain --max-workers=1 --no-daemon -Dkotlin.compiler.execution.strategy="in-process" -Dkotlin.colors.enabled=false
 
 before_cache:
