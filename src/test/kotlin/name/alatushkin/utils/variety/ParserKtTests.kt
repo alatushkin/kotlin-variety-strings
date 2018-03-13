@@ -3,6 +3,7 @@ package name.alatushkin.utils.variety
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
+import org.junit.jupiter.api.assertThrows
 
 class ParserKtTests {
 
@@ -12,7 +13,18 @@ class ParserKtTests {
                 "[s1]",
                 "[s1|s2]",
                 "s1[s2|s3]",
-                "[s1|s2]s3"
+                "[s1|s2]s3",
+                "s0[s1|s2]s3",
+                "s0[[s1|s2]|s3]s[s4|s5]s6"
+        )
+    }
+
+    fun errorParsingStrings(): Collection<String> {
+        return listOf(
+                "[s1",
+                "[|s2]",
+                "s1][s2|s3]",
+                "[s1|s2s3"
         )
     }
 
@@ -22,6 +34,19 @@ class ParserKtTests {
         return stringsToTestParsing().map { str ->
             DynamicTest.dynamicTest(str,
                     { assertEquals(str, parse(str).toString()) })
+        }.toList()
+
+    }
+
+    @TestFactory
+    fun parseSmokeTestsParseErrors(): Collection<DynamicTest> {
+        return errorParsingStrings().map { str ->
+            DynamicTest.dynamicTest(str,
+                    {
+                        assertThrows<ParseException> {
+                            parse(str)
+                        }
+                    })
         }.toList()
 
     }
