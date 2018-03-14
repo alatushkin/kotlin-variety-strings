@@ -33,3 +33,10 @@ test {
 task wrapper(type: Wrapper) {
   gradleVersion = "4.6"
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+    }
+}
