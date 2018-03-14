@@ -1,6 +1,7 @@
 # kotlin-vbadgeety-strings
 
 [![Build Status](https://travis-ci.org/alatushkin/kotlin-variety-strings.svg?branch=master)](https://travis-ci.org/alatushkin/kotlin-variety-strings)
+[![Coverage Status](https://coveralls.io/repos/github/alatushkin/kotlin-variety-strings/badge.svg?branch=master)](https://coveralls.io/github/alatushkin/kotlin-variety-strings?branch=master)
 
 Utility library to get variety of strings from single string with special syntax
 
