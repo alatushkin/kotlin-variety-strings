@@ -1,4 +1,7 @@
-# kotlin-variety-strings
+# kotlin-vbadgeety-strings
+
+[![Build Status](https://travis-ci.org/alatushkin/kotlin-variety-strings.svg?branch=master)](https://travis-ci.org/alatushkin/kotlin-variety-strings)
+
 Utility library to get variety of strings from single string with special syntax
 
 Helps to generate different variants from single template string. 
