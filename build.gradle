@@ -8,17 +8,12 @@ buildscript {
   }
 }
 
-plugins {
-    id 'net.saliman.cobertura' version '2.3.1'
-    id 'com.github.kt3k.coveralls' version '2.8.2'
-}
-
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
   kotlinOptions {
     jvmTarget = "1.8"
   }
 }
-
+apply plugin: 'jacoco'
 apply plugin: 'kotlin'
 
 repositories {
@@ -37,11 +32,4 @@ test {
 
 task wrapper(type: Wrapper) {
   gradleVersion = "4.6"
-}
-
-
-cobertura.coverageFormats = ['html', 'xml']
-
-tasks.coveralls {
-    dependsOn 'check'
 }
