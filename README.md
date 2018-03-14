@@ -1,7 +1,8 @@
 # kotlin-vbadgeety-strings
 
 [![Build Status](https://travis-ci.org/alatushkin/kotlin-variety-strings.svg?branch=master)](https://travis-ci.org/alatushkin/kotlin-variety-strings)
-[![Coverage Status](https://coveralls.io/repos/github/alatushkin/kotlin-variety-strings/badge.svg?branch=master)](https://coveralls.io/github/alatushkin/kotlin-variety-strings?branch=master)
+[![codecov](https://codecov.io/gh/alatushkin/kotlin-variety-strings/branch/master/graph/badge.svg)](https://codecov.io/gh/alatushkin/kotlin-variety-strings)
+[![codebeat badge](https://codebeat.co/badges/4ffecc9a-4322-456b-91e5-d7b9687f64d9)](https://codebeat.co/projects/github-com-alatushkin-kotlin-variety-strings-master)
 
 Utility library to get variety of strings from single string with special syntax
 
