@@ -41,3 +41,7 @@ task wrapper(type: Wrapper) {
 
 
 cobertura.coverageFormats = ['html', 'xml']
+
+tasks.coveralls {
+    dependsOn 'check'
+}
