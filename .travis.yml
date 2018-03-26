@@ -15,8 +15,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script:
-  - ./gradlew check
-  - ./bintrayUpload -PbintrayUser=$BINTRAY_API_USER -PbintrayApiKey=$BINTRAY_API_KEY
+  - ./gradlew check bintrayUpload -PbintrayUser=$BINTRAY_API_USER -PbintrayApiKey=$BINTRAY_API_KEY
 
 after_success:
   - ./gradlew jacocoTestReport
