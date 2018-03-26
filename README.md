@@ -37,3 +37,18 @@ val someStringVariant:String=rootNode.variant(1)
  Note:
  There is naive caching inside String.extension functions so it's better to no use them in case of massive users input to avoid OOM
     
+To use it:
+with Gradle:
+```
+repositories {
+    ....
+ maven { url  "https://dl.bintray.com/alatushkin/maven"}
+    ....
+}
+....
+dependencies{
+...
+ compile 'name.alatushkin.utils:kotlin-variety-strings:0.0.1'
+...
+}
+```
