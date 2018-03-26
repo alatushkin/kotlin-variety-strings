@@ -1,38 +1,46 @@
 buildscript {
-  ext.kotlin_version = '1.2.30'
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-  }
+    repositories {
+        mavenCentral()
+    }
 }
 
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
+plugins {
+    id "jacoco"
+    id "org.jetbrains.kotlin.jvm" version "1.2.31"
+    id "maven-publish"
+    id "com.jfrog.bintray" version "1.8.0"
 }
-apply plugin: 'jacoco'
-apply plugin: 'kotlin'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-  compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-  testCompile("org.junit.jupiter:junit-jupiter-api:5.1.0")
-  testRuntime("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.1.0")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 test {
-  useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = "4.6"
+    gradleVersion = "4.6"
 }
+
+task packageSources(type: Jar, dependsOn: 'classes') {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+artifacts { archives packageSources }
 
 jacocoTestReport {
     reports {
