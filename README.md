@@ -1,4 +1,4 @@
-# kotlin-vbadgeety-strings
+# kotlin-variety-strings
 
 [![Build Status](https://travis-ci.org/alatushkin/kotlin-variety-strings.svg?branch=master)](https://travis-ci.org/alatushkin/kotlin-variety-strings)
 [![codecov](https://codecov.io/gh/alatushkin/kotlin-variety-strings/branch/master/graph/badge.svg)](https://codecov.io/gh/alatushkin/kotlin-variety-strings)
@@ -13,7 +13,11 @@ Template syntax is quite simple and obvious:
 ```kotlin
 val randomStr = "[Hi!|Yo!]\n[What can i do for|How can i help] you today?".randomVariant()
 ```
-With this snippet you get one of 4 variant.
+With this snippet you get one of 4 variant:
+* Hi!\nWhat can i do for you today?
+* Yo!\nWhat can i do for you today?
+* Hi!\nHow can i help you today?
+* Yo!\nHow can i help you today?
 
 Also you can use it directly without using String.extension function:
 ```kotlin
