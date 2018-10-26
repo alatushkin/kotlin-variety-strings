@@ -1,8 +1,13 @@
 package name.alatushkin.utils.variety
 
+import java.util.concurrent.ThreadLocalRandom
+
 
 sealed class TreeNode {
     abstract val count: Int
+
+    fun random() = variant(ThreadLocalRandom.current().nextInt(0, count))
+
     fun variant(variantIdx: Int): String {
         assert(variantIdx in 0 until count)
         return getVariant(variantIdx)
@@ -31,16 +36,16 @@ internal class ListNode(private val items: Array<TreeNode>) : TreeNode() {
 
         //количество комбинаций для каждого разряда
         val digitsSizes = items
-                .map { it.count }
-                .stream()
-                .mapToInt({ it })
-                .filter { count -> count > 1 }
-                .skip(1).toArray()
-                .reversedArray()
+            .map { it.count }
+            .stream()
+            .mapToInt({ it })
+            .filter { count -> count > 1 }
+            .skip(1).toArray()
+            .reversedArray()
 
         //основания системы счисления с переменным основанием
         val bases = digitsSizes.mapIndexed { idx, count -> count * digitsSizes.getOrElse(idx - 1, { 1 }) }
-                .reversed().toTypedArray() + 1
+            .reversed().toTypedArray() + 1
 
         var idx = 0
         for (element in items) {
