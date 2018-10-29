@@ -33,7 +33,7 @@ internal fun parse(str: String, lexems: Array<LexemMark>, startIdx: Int = 0): Pa
             nodes.add(subNodes)
             idx = lastIdx
         } else {
-            TODO("Unknown lexeme $currentLexeme  at $idx")
+            error("Unknown lexeme $currentLexeme  at $idx")
         }
         idx++
 
